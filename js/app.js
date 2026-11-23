@@ -1,6 +1,4 @@
-
 function createPalette(size) {
-
     for (let i = 0; i < size; i++) {
         const item = document.createElement('li');
         const button = document.createElement('button');
