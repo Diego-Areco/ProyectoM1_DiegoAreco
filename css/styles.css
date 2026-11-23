@@ -76,3 +76,16 @@
 #paletteList li:focus-within{
     flex: 1.2;
 }
+
+@media (max-width: 750px) {
+    #paletteList{
+        flex-direction: column;
+    }
+
+    #paletteList li,
+    #paletteList li:hover,
+    #paletteList li:focus-within{
+        flex: none;
+        height: 100px;
+    }
+}
