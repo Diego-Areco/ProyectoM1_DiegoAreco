@@ -19,19 +19,29 @@
       </header>
       <main class="main">
         <h2>Generador de Paletas</h2>
-        <section>
-          <label for="paletteSize">Tamaño de la paleta:</label>
-          <select id="paletteSize" name="paletteSize">
-            <option value="6" selected>6 colores</option>
-            <option value="8">8 colores</option>
-            <option value="9">9 colores</option>
-          </select>
-          <label for="colorFormat">Formato de colores:</label>
-          <select id="colorFormat" name="colorFormat">
-            <option value="rgba">RGBA</option>
-            <option value="hsl" selected>HSL</option>
-          </select>
-          <button id="generatePalette" type="button">Generar Paleta</button>
+        <section id="controls">
+          <div>
+            <label for="paletteSize" class="form-label"
+              >Tamaño de la paleta:</label
+            >
+            <select id="paletteSize" name="paletteSize">
+              <option value="6" selected>6 colores</option>
+              <option value="8">8 colores</option>
+              <option value="9">9 colores</option>
+            </select>
+          </div>
+          <div>
+            <label for="colorFormat" class="form-label"
+              >Formato de colores:</label
+            >
+            <select id="colorFormat" name="colorFormat">
+              <option value="rgba">RGBA</option>
+              <option value="hsl" selected>HSL</option>
+            </select>
+          </div>
+          <div>
+            <button id="generatePalette" type="button">Generar Paleta</button>
+          </div>
         </section>
         <section id="paletteContainer" class="palette-container">
           <ul id="paletteList"></ul>
