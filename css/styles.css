@@ -120,3 +120,11 @@
 #generatePalette:hover {
     background-color: #0b5ed7;
 }
+
+.form-control{
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-family: "Montserrat", sans-serif;
+}
