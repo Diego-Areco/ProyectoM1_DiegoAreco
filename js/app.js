@@ -1,3 +1,9 @@
+function getTextColor(backgroundColor) {
+    const [r, g, b] = backgroundColor.match(/\d+/g).map(Number);
+    const brightness = (r + g + b) / 3;
+    return brightness < 128 ? '#fff' : '#000';
+}
+
 function createPalette(size) {
     paletteList.innerHTML = ''; 
     for (let i = 0; i < size; i++) {
@@ -12,6 +18,8 @@ function createPalette(size) {
         button.appendChild(code);
         item.appendChild(button);
         paletteList.appendChild(item);
+        button.style.color = getTextColor(getComputedStyle(button).backgroundColor);
+        
     }
 }
 
