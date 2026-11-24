@@ -6,7 +6,10 @@ function createPalette(size) {
         button.className = 'paletteColor';
         const color = generarColorAleatorio();
         button.style.backgroundColor = color;
-        button.textContent = color;
+        const code = document.createElement('span');
+        code.className = 'colorCode';
+        code.textContent = color;
+        button.appendChild(code);
         item.appendChild(button);
         paletteList.appendChild(item);
     }

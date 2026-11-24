@@ -128,3 +128,13 @@
     border-radius: 0.25rem;
     font-family: "Montserrat", sans-serif;
 }
+
+.colorCode{
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.paletteColor:hover .colorCode,
+.paletteColor:focus-visible .colorCode{
+    opacity: 1;
+}
