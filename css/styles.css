@@ -16,12 +16,12 @@
         "footer footer";
     gap: 0;
     min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
 }
 
 .header{
     grid-area: header;
-    background-color: tomato;
-    color: white;
+    background-color: #f5f2ed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: tomato;
+    background-color: #f5f2ed;
 }
 
 @media (max-width: 768px) {
@@ -52,6 +52,7 @@
 
 #paletteList{
     display: flex;
+    margin: 2rem 0;
     width: 100%;
     list-style: none;
 }
