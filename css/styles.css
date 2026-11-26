@@ -21,10 +21,24 @@
 
 .header{
     grid-area: header;
-    background-color: #f5f2ed;
+    background-color: #fff;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-brand{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-logo {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
 }
 
 .main{
@@ -36,7 +50,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5f2ed;
+    background-color: #fff;
+    border-top: 1px solid #e5e7eb;
 }
 
 @media (max-width: 768px) {
