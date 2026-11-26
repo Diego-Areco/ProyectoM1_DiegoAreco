@@ -137,7 +137,31 @@ function renderFavorites() {
             colors.appendChild(box);
         });
 
+        const loadBtn = document.createElement('button');
+        loadBtn.type = 'button';
+        loadBtn.className = 'loadFavorite';
+        loadBtn.textContent = 'Cargar';
+        loadBtn.addEventListener('click', () => {
+            palette = JSON.parse(JSON.stringify(fav));
+            renderPalette();
+            showToast('¡Paleta cargada!');
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.type = 'button';
+        deleteBtn.className = 'favoriteBtn';
+        deleteBtn.textContent = 'Eliminar';
+        deleteBtn.addEventListener('click', () => {
+            favorites.splice(index, 1);
+            saveFavorites();
+            renderFavorites();
+            showToast('¡Paleta eliminada!');
+        });
+
         li.appendChild(colors);
+        li.appendChild(loadBtn);
+        li.appendChild(deleteBtn);
+
         favoritesList.appendChild(li);
     });
 }
