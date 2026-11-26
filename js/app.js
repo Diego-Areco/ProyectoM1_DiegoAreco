@@ -16,6 +16,7 @@ function createPalette(size) {
         code.className = 'colorCode';
         code.textContent = color;
         button.appendChild(code);
+        button.title = 'Click para copiar';
         item.appendChild(button);
         paletteList.appendChild(item);
         button.style.color = getTextColor(getComputedStyle(button).backgroundColor);
@@ -36,6 +37,19 @@ function numeroAleatorio(min, max) {
 
 generatePalette.addEventListener('click', () => {
     createPalette(Number(paletteSize.value));
+    showToast('¡Paleta generada!');
 });
 
 createPalette(Number(paletteSize.value));
+
+const toast = document.getElementById('toast');
+let toastTimeout;
+
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 1500);
+}
