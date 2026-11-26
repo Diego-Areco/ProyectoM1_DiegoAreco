@@ -134,8 +134,37 @@
     transition: opacity 0.2s ease;
 }
 
-.paletteColor:hover .colorCode,
-.paletteColor:focus-visible .colorCode{
+#paletteList li:hover .colorCode,
+.paletteColor:focus-visible .colorCode,
+.lockButton:focus-visible .colorCode{
+    opacity: 1;
+}
+
+#paletteList li{
+    position: relative;
+}
+
+.paletteColor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.lockButton{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    font-size: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#paletteList li:hover .lockButton,
+.lockButton:focus-visible,
+.lockButton[aria-pressed="true"]{
     opacity: 1;
 }
 

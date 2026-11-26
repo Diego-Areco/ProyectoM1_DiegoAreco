@@ -13,32 +13,71 @@ function colorToHex(backgroundColor) {
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
 }
 
-function createPalette(size) {
-    paletteList.innerHTML = ''; 
+function updatePalette(size) {
     for (let i = 0; i < size; i++) {
-        const item = document.createElement('li');
+        if (!palette[i] || !palette[i].locked) {
+            palette[i] = { color: generarColorAleatorio(), locked: false };
+        }
+    }
+    palette.length = size;
+}
+
+function renderPalette() {
+    paletteList.innerHTML = ''; 
+
+    palette.forEach((item, index) => {
+        const li = document.createElement('li');
+
         const button = document.createElement('button');
+        button.type = 'button';
         button.className = 'paletteColor';
-        const color = generarColorAleatorio();
-        button.style.backgroundColor = color;
+        button.style.backgroundColor = item.color;
+        button.title = 'Click para copiar';
+
+        const lockBtn = document.createElement('button');
+        lockBtn.type = 'button';
+        lockBtn.className = 'lockButton';
+
         const code = document.createElement('span');
         code.className = 'colorCode';
-        code.textContent = color;
+        code.textContent = item.color;
+        
+        function updateLockButton() {
+            lockBtn.textContent = item.locked ? '🔒' : '🔓';
+            lockBtn.title = item.locked ? 'Clic para desbloquear' : 'Clic para bloquear';
+            lockBtn.setAttribute('aria-pressed', item.locked);
+            lockBtn.setAttribute('aria-label',`${item.locked ? 'Desbloquear' : 'Bloquear'} color ${index + 1}`);
+        }
+
+        updateLockButton();
+
+        lockBtn.addEventListener('click', () => {
+            item.locked = !item.locked;
+            updateLockButton();
+        });
+
         button.appendChild(code);
-        button.title = 'Click para copiar';
-        item.appendChild(button);
-        paletteList.appendChild(item);
-        button.style.color = getTextColor(getComputedStyle(button).backgroundColor);   
+        li.appendChild(button);
+        li.appendChild(lockBtn);
+        paletteList.appendChild(li);
+        button.style.color = getTextColor(getComputedStyle(button).backgroundColor);
         const hex = colorToHex(getComputedStyle(button).backgroundColor);
-        button.addEventListener('click', () => {
+
+        button.addEventListener('click', async () => {
             try {
-                navigator.clipboard.writeText(hex);
+                await navigator.clipboard.writeText(hex);
                 showToast(`¡Color copiado ${hex}!`);
-            }catch{
+            } catch {
                 showToast('No se pudo copiar');
             }
         });
-    }
+
+    });
+}
+
+function createPalette(size) {
+    updatePalette(size);
+    renderPalette();
 }
 
 function generarColorAleatorio() {
@@ -56,6 +95,8 @@ generatePalette.addEventListener('click', () => {
     createPalette(Number(paletteSize.value));
     showToast('¡Paleta generada!');
 });
+
+let palette = [];
 
 createPalette(Number(paletteSize.value));
 
