@@ -188,3 +188,24 @@
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
+.favorites-list{
+    list-style: none;
+}
+
+.favorite{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.favoriteColors{
+    display: flex;
+    flex: 1;
+}
+
+.favoriteColor{
+    flex: 1;
+    height: 400px;
+}

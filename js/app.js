@@ -111,3 +111,42 @@ function showToast(message) {
         toast.classList.remove('show');
     }, 1500);
 }
+
+const addFavorite = document.getElementById('addFavorite');
+const favoritesList = document.getElementById('favoritesList');
+
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function renderFavorites() {
+    favoritesList.innerHTML = '';
+
+    favorites.forEach((fav, index) => {
+        const li = document.createElement('li');
+        li.className = 'favorite';
+
+        const colors = document.createElement('div');
+        colors.className = 'favoriteColors';
+        fav.forEach(item => {
+            const box = document.createElement('span');
+            box.className = 'favoriteColor';
+            box.style.backgroundColor = item.color;
+            colors.appendChild(box);
+        });
+
+        li.appendChild(colors);
+        favoritesList.appendChild(li);
+    });
+}
+
+addFavorite.addEventListener('click', () => {
+    favorites.push(JSON.parse(JSON.stringify(palette)));
+    saveFavorites();
+    renderFavorites();
+    showToast('¡Paleta agregada a favoritos!');
+});
+
+renderFavorites();
