@@ -137,6 +137,14 @@ function saveFavorites() {
 function renderFavorites() {
     favoritesList.innerHTML = '';
 
+    if (favorites.length === 0) {
+        const empty = document.createElement('li');
+        empty.className = 'favoritesEmpty';
+        empty.textContent = 'Aún no tienes paletas favoritas. Genera una y presiona el corazón para guardarla.';
+        favoritesList.appendChild(empty);
+        return;
+    }
+
     favorites.forEach((fav, index) => {
         const li = document.createElement('li');
         li.className = 'favorite';
