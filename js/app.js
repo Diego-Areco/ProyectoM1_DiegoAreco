@@ -164,7 +164,7 @@ function renderFavorites() {
         loadBtn.className = 'loadFavorite';
         loadBtn.innerHTML = ICON_VISUALIZE;
         loadBtn.title = 'Cargar paleta';
-loadBtn.setAttribute('aria-label', `Cargar paleta`);
+        loadBtn.setAttribute('aria-label', `Cargar paleta`);
         loadBtn.addEventListener('click', () => {
             palette = JSON.parse(JSON.stringify(fav));
             renderPalette();
