@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -19,6 +19,8 @@
           <svg
             class="header-logo"
             viewBox="0 0 48 48"
+            width="26"
+            height="26"
             aria-hidden="true"
             focusable="false"
           >
@@ -27,12 +29,22 @@
             <rect x="2" y="26" width="20" height="20" rx="6" fill="#3b82f6" />
             <rect x="26" y="26" width="20" height="20" rx="6" fill="#22a06b" />
           </svg>
-          <h1>Paletas Interactivas</h1>
+          <h1>Pigmento</h1>
         </div>
       </header>
       <main class="main">
-        <h2>Generador de Paletas</h2>
-        <section id="controls">
+        <section class="hero container" aria-labelledby="heroTitle">
+          <p class="hero-eyebrow">Generador de paletas</p>
+          <h2 id="heroTitle">
+            Encuentra los colores <span>de tu próxima idea</span>
+          </h2>
+          <p class="hero-text">
+            Elige el tamaño y el formato, genera una paleta aleatoria, bloquea
+            los colores que te gusten y guarda tus favoritas.
+          </p>
+        </section>
+        <section id="controls" class="container">
+          <h2>Generador de Paletas</h2>
           <div>
             <label for="paletteSize" class="form-label"
               >Tamaño de la paleta:</label
@@ -57,7 +69,7 @@
           </div>
         </section>
         <section id="paletteContainer" class="palette-container">
-          <div class="paletteHeader">
+          <div class="paletteHeader container">
             <h3 class="paletteTitle">Tu paleta de colores</h3>
             <button
               id="addFavorite"
@@ -81,7 +93,7 @@
           </div>
           <ul id="paletteList"></ul>
         </section>
-        <section id="favoritesContainer" class="favorites-container">
+        <section id="favoritesContainer" class="favorites-container container">
           <h3>Paletas Favoritas</h3>
           <ul id="favoritesList" class="favorites-list"></ul>
         </section>

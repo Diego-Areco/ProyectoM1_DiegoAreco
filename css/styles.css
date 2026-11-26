@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+body{
+    background-color: #f8f7f3;
+}
+
 .page{
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -19,14 +23,19 @@
     font-family: "Montserrat", sans-serif;
 }
 
+.container{
+    padding-inline: 1.5rem;
+}
+
 .header{
     grid-area: header;
-    background-color: #fff;
+    background-color: #f8f7f3;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
 }
 
 .header-brand{
@@ -36,13 +45,21 @@
 }
 
 .header-logo {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     flex-shrink: 0;
+}
+
+.header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .main{
     grid-area: main;
+    background-color: #f8f7f3;
 }
 
 .footer{
@@ -50,8 +67,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #f8f7f3;
     border-top: 1px solid #e5e7eb;
+    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -86,6 +104,15 @@
     appearance: none;
     font: inherit;
     cursor: pointer;
+}
+
+.paletteTitle,
+.favorites-container h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #1f2937;
 }
 
 #paletteList li:hover,
@@ -131,21 +158,24 @@
     font-weight: 500;
 }
 
-#generatePalette{
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
+#generatePalette {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
     font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     color: #fff;
-    background-color: #0d6efd;
-    border: 1px solid #0d6efd;
-    border-radius: 0.25rem;
+    background-color: #1f2937;
+    border-radius: 0.6rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 #generatePalette:hover {
-    background-color: #0b5ed7;
+    background-color: #000;
 }
 
 .form-control{
@@ -158,13 +188,13 @@
 
 .colorCode{
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.15s ease;          
 }
 
 #paletteList li:hover .colorCode,
-.paletteColor:focus-visible .colorCode,
-.lockButton:focus-visible .colorCode{
+.paletteColor:focus-visible .colorCode{
     opacity: 1;
+    transition: opacity 0.2s ease 0.25s;     
 }
 
 #paletteList li{
@@ -205,6 +235,7 @@
 .lockButton:focus-visible,
 .lockButton[aria-pressed="true"]{
     opacity: 1;
+    transition: opacity 0.1s ease 0.20s;
 }
 
 .lockButton svg{
@@ -340,4 +371,37 @@
 .favoriteBtn:focus-visible {
     outline: 3px solid #0d6efd;
     outline-offset: 3px;
+}
+
+.hero {
+    padding-block: 3.5rem 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.hero-eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c9431d;
+}
+
+.hero h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.1;
+    color: #1f2937;
+}
+
+.hero h2 span {
+    color: #c9431d;
+}
+
+.hero-text {
+    max-width: 38rem;
+    margin: 1rem auto 1.75rem;
+    font-size: 1.05rem;
+    color: #4b5563;
 }
