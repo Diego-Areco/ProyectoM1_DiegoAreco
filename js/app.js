@@ -4,6 +4,15 @@ function getTextColor(backgroundColor) {
     return brightness < 128 ? '#fff' : '#000';
 }
 
+function toHex(n) {
+   return n.toString(16).padStart(2, '0');
+}
+
+function colorToHex(backgroundColor) {
+    const [r, g, b] = backgroundColor.match(/\d+/g).map(Number);
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+}
+
 function createPalette(size) {
     paletteList.innerHTML = ''; 
     for (let i = 0; i < size; i++) {
@@ -17,18 +26,18 @@ function createPalette(size) {
         code.textContent = color;
         button.appendChild(code);
         button.title = 'Click para copiar';
+        item.appendChild(button);
+        paletteList.appendChild(item);
+        button.style.color = getTextColor(getComputedStyle(button).backgroundColor);   
+        const hex = colorToHex(getComputedStyle(button).backgroundColor);
         button.addEventListener('click', () => {
             try {
-                navigator.clipboard.writeText(color);
-                showToast(`¡Color copiado!`);
+                navigator.clipboard.writeText(hex);
+                showToast(`¡Color copiado ${hex}!`);
             }catch{
                 showToast('No se pudo copiar');
             }
         });
-        item.appendChild(button);
-        paletteList.appendChild(item);
-        button.style.color = getTextColor(getComputedStyle(button).backgroundColor);
-        
     }
 }
 
