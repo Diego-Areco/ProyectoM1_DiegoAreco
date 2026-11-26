@@ -87,7 +87,19 @@
     #paletteList li:hover,
     #paletteList li:focus-within{
         flex: none;
-        height: 100px;
+        height: 250px;
+    }
+
+    #paletteList .colorCode,
+    #paletteList .lockButton{
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    #paletteList .colorCode,
+    #paletteList .lockButton{
+        opacity: 1;
     }
 }
 
@@ -154,7 +166,7 @@
 
 .lockButton{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     display: flex;
