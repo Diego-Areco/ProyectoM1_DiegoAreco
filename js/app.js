@@ -17,6 +17,14 @@ function createPalette(size) {
         code.textContent = color;
         button.appendChild(code);
         button.title = 'Click para copiar';
+        button.addEventListener('click', () => {
+            try {
+                navigator.clipboard.writeText(color);
+                showToast(`¡Color copiado!`);
+            }catch{
+                showToast('No se pudo copiar');
+            }
+        });
         item.appendChild(button);
         paletteList.appendChild(item);
         button.style.color = getTextColor(getComputedStyle(button).backgroundColor);
