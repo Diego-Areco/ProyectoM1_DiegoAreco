@@ -156,16 +156,35 @@
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-40%, -50%);
-    font-size: 1.4rem;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.lockButton:hover,
+.lockButton:focus-visible{
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 #paletteList li:hover .lockButton,
 .lockButton:focus-visible,
 .lockButton[aria-pressed="true"]{
     opacity: 1;
+}
+
+.lockButton svg{
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+    pointer-events: none;
 }
 
 .toast{
@@ -226,4 +245,63 @@
 .favoriteColor{
     flex: 1;
     height: 200px;
+}
+
+.iconBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.iconBtn:hover {
+    transform: scale(1.15);
+}
+
+.iconBtn:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+.iconBtn svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: currentColor;
+}
+
+.loadFavorite,
+.favoriteBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.loadFavorite svg,
+.favoriteBtn svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: currentColor;
+    pointer-events: none;
+}
+
+.loadFavorite:hover,
+.favoriteBtn:hover {
+    transform: scale(1.2);
+}
+
+.loadFavorite:focus-visible,
+.favoriteBtn:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 3px;
 }
