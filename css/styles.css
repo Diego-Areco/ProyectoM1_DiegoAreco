@@ -189,15 +189,33 @@
     transform: translateX(-50%) translateY(0);
 }
 
+.paletteHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
 .favorites-list{
     list-style: none;
 }
 
 .favorite{
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.favoriteHeader{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
+}
+
+.favoriteActions{
+    display: flex;
+    gap: 0.5rem;
 }
 
 .favoriteColors{
@@ -207,5 +225,5 @@
 
 .favoriteColor{
     flex: 1;
-    height: 400px;
+    height: 200px;
 }

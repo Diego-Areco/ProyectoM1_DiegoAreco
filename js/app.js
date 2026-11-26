@@ -128,14 +128,15 @@ function renderFavorites() {
         const li = document.createElement('li');
         li.className = 'favorite';
 
-        const colors = document.createElement('div');
-        colors.className = 'favoriteColors';
-        fav.forEach(item => {
-            const box = document.createElement('span');
-            box.className = 'favoriteColor';
-            box.style.backgroundColor = item.color;
-            colors.appendChild(box);
-        });
+        const header = document.createElement('div');
+        header.className = 'favoriteHeader';
+
+        const title = document.createElement('h4');
+        title.className = 'favoriteTitle';
+        title.textContent = `Paleta ${index + 1}`;
+
+        const actions = document.createElement('div');
+        actions.className = 'favoriteActions';
 
         const loadBtn = document.createElement('button');
         loadBtn.type = 'button';
@@ -158,9 +159,23 @@ function renderFavorites() {
             showToast('¡Paleta eliminada!');
         });
 
+        const colors = document.createElement('div');
+        colors.className = 'favoriteColors';
+        fav.forEach(item => {
+            const box = document.createElement('span');
+            box.className = 'favoriteColor';
+            box.style.backgroundColor = item.color;
+            colors.appendChild(box);
+        });
+
+        actions.appendChild(loadBtn);
+        actions.appendChild(deleteBtn);
+        header.appendChild(title);
+        header.appendChild(title);
+        header.appendChild(actions);
+
+        li.appendChild(header);
         li.appendChild(colors);
-        li.appendChild(loadBtn);
-        li.appendChild(deleteBtn);
 
         favoritesList.appendChild(li);
     });
