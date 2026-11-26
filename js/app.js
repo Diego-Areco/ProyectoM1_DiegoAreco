@@ -166,7 +166,17 @@ function renderFavorites() {
     });
 }
 
+function paletteKey(p){
+    return p.map(item => item.color).join('|');
+}
+
 addFavorite.addEventListener('click', () => {
+    const key = paletteKey(palette);
+    const exists = favorites.some(fav => paletteKey(fav) === key);
+    if (exists) {
+        showToast('Esa paleta ya existe en favoritos!');
+        return;
+    }
     favorites.push(JSON.parse(JSON.stringify(palette)));
     saveFavorites();
     renderFavorites();
